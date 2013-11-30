@@ -1,0 +1,18 @@
+﻿{
+  "name": "AlcMemo",
+  "version": "1.0",
+  "description": "AlcMemo",
+  "icons": {
+    "19" : "images/icon-19.png"
+  },
+  "browser_action": {
+    "default_icon": "images/icon-19.png",
+    "default_title": "AlcMemo",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 2,
+  "background": {
+    "page": "background.html"
+  },
+  "permissions": ["tabs"]
+}
