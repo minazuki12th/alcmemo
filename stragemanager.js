@@ -35,19 +35,25 @@ var alcStorage = (function (storage) {
         for(var i = 0; i < wordList.length; i++){
             if(wordList[i].word === word){
                 wordList[i].count += 1;
+                wordList[i].updated = new Date();
                 hit = true;
                 break;
             }
         }
         if(hit === false){
-        	wordList.push({word: word, count: 1});
+        	wordList.push({word: word, count: 1, updated: new Date()});
         }
     	storage.put(key, JSON.stringify(wordList));
     };
     
-    my.removeWord = function(index){
+    my.removeWord = function(word){
     	var wordList = JSON.parse(storage.get(key));
-    	wordList.splice(index, 1);
+        for(var i = 0; i < wordList.length; i++){
+            if(wordList[i].word === word){
+                wordList.splice(i, 1);
+                break;
+            }
+        }
     	storage.put(key, JSON.stringify(wordList));
     };
 
